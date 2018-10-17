@@ -1,8 +1,11 @@
 class Pokemon
   attr_accessor :id, :name, :type, :db
 
-  def initialize(info_hash)
-    info_hash.each { |k, v| self.send("#{k}=", v) }
+  def initialize(id:, name:, type:, db:)
+    @id = id
+    @name = name
+    @type = type
+    @db = db
   end
 
   def self.save(pokemon, type, db)
@@ -11,11 +14,11 @@ class Pokemon
 
   def self.find(id, db)
     pokemon_info = {}
-    db_return = db.execute("SELECT * FROM pokemon WHERE id = ?",id)
-    pokemon_info[:id] = db_return[0][0]
-    pokemon_info[:name] = db_return[0][1]
-    pokemon_info[:type] = db_return[0][2]
+    db_return = db.execute("SELECT * FROM pokemon WHERE id = ?",id).flatten
+    pokemon_info[:id] = db_return[0]
+    pokemon_info[:name] = db_return[1]
+    pokemon_info[:type] = db_return[2]
     Pokemon.new(pokemon_info)
-    
+
   end
 end
