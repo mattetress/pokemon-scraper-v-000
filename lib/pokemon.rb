@@ -6,6 +6,6 @@ class Pokemon
   end
 
   def self.save(pokemon, type, db)
-    db.execute("INSERT INTO pokemon (name, type) VALUES (pokemon, type)",pokemon, type)
+    db.execute("INSERT INTO pokemon (name, type) VALUES (name, type)",pokemon, type)
   end
 end
