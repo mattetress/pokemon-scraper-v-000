@@ -10,7 +10,9 @@ class Pokemon
   end
 
   def self.find(id, db)
-    info = db.execute("SELECT * FROM pokemon WHERE id = ?",id)
-    binding.pry 
+    pokemon_info = {}
+    db_return = db.execute("SELECT * FROM pokemon WHERE id = ?",id)
+    pokemon_info[:id] = db_return[0][0]
+    binding.pry
   end
 end
