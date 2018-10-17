@@ -15,6 +15,7 @@ class Pokemon
     pokemon_info[:id] = db_return[0][0]
     pokemon_info[:name] = db_return[0][1]
     pokemon_info[:type] = db_return[0][2]
-    binding.pry
+    Pokemon.new(pokemon_info)
+    
   end
 end
