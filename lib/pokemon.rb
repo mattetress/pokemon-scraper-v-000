@@ -21,6 +21,7 @@ class Pokemon
     pokemon_info[:type] = db_return[2]
     pokemon_info[:db] = db
     Pokemon.new(pokemon_info)
-
   end
+
+  
 end
