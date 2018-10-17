@@ -18,6 +18,7 @@ class Pokemon
     pokemon_info[:id] = db_return[0]
     pokemon_info[:name] = db_return[1]
     pokemon_info[:type] = db_return[2]
+    pokemon_info[:db] = db
     Pokemon.new(pokemon_info)
 
   end
